@@ -21,14 +21,31 @@ public class Main {
 
         Cliente cliente = new Cliente(nome, cpf, endereco);
 
+        System.out.print("Digite a quantia inicial para abertura da conta, valor mínimo R$50: ");
+        double quantiaInicial = scanner.nextDouble();
+        if (quantiaInicial < 50) {
+            System.out.println("A quantia inicial deve ser de pelo menos R$50.");
+            return;
+        }
+
         Conta cc = new ContaCorrente(cliente);
-        cc.depositar(100);
+        cc.depositar(quantiaInicial);
 
-        Conta poupanca = new ContaPoupanca(cliente);
-        cc.transferir(100, poupanca);
+        System.out.print("Deseja transferir uma quantia para a conta poupança? (sim/não): ");
+        scanner.nextLine(); // Consumir a nova linha
+        String resposta = scanner.nextLine();
 
+        if (resposta.equalsIgnoreCase("sim")) {
+            System.out.print("Digite a quantia para transferir: ");
+            double quantiaTransferir = scanner.nextDouble();
+            Conta poupanca = new ContaPoupanca(cliente);
+            cc.transferir(quantiaTransferir, poupanca);
+     
         cc.imprimirExtrato();
         poupanca.imprimirExtrato();
+    } else {
+        cc.imprimirExtrato();
+    }    
 
         scanner.close();
     }
