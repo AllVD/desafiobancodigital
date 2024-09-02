@@ -4,10 +4,14 @@ public class ContaPoupanca extends Conta {
         super(cliente);
     }
 
+    public ContaPoupanca() { //construtor vazio
+        super();
+    }
+
     @Override
     public void imprimirExtrato() {
-        System.out.println("=== Extrato Conta Poupanca ===");
-        super.ImprimirInfosComuns();
+        System.out.println("=*=*= Extrato Conta Poupanca =*=*=");
+        super.imprimirInfosComuns();
 
     }
 
