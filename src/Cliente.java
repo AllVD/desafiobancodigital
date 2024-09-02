@@ -1,4 +1,3 @@
-import java.util.List;
 class Cliente {
     private String nome;
     private String cpf;
@@ -59,7 +58,7 @@ class Cliente {
     }
 
     public void setEndereco(String endereco) {
-        this.endereco = endereco;
+        this.endereco = endereco.trim().replaceAll("\\s+", " ");
     }
 
     public String getEmail() {
@@ -90,5 +89,5 @@ class Cliente {
     public String toString() {
         return String.format("Cliente{nome='%s', cpf='%s', endereco='%s', email='%s', telefone='%s', banco=%s}",
             nome, cpf, endereco, email, telefone, banco);
-
+    }
 }

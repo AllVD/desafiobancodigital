@@ -18,7 +18,7 @@ public abstract class Conta implements IConta {
 
     public Conta() { //Construtor vazio
         this.agencia = Conta.AGENCIA_PADRAO;
-        this.numero = SEQUENCIAL++
+        this.numero = SEQUENCIAL++;
 
     }
 
@@ -41,6 +41,7 @@ public abstract class Conta implements IConta {
     //Método Getter SEQUENCIAL
     public static int getSEQUENCIAL() {
         return SEQUENCIAL;
+    }
     //Método Getter agencia
     public int getAgencia() {
         return agencia;
