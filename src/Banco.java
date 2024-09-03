@@ -20,8 +20,12 @@ public class Banco {
         return new ArrayList<>(contas);
     }
 
-    public void setContas(List<Conta> contas) {
-        this.contas = contas;
+    public void setContas(List<IConta> contas) {
+        if (contas != null) {
+            this.contas = new ArrayList<>(contas); // Copia defensiva
+        } else {
+            throw new IllegalArgumentException("Lista de contas não pode ser nula");
+        }
     }
     // Método Getter para os clientes
     public List<Cliente> getClientes() {
