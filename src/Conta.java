@@ -14,10 +14,6 @@ public abstract class Conta implements IConta {
         this.cliente = cliente;
     }
 
-    public Conta() { //Construtor vazio
-        this.agencia = Conta.AGENCIA_PADRAO;
-        this.numero = SEQUENCIAL++;
-    }
     @Override
     public void sacar(double valor) {
         saldo -= valor; //saldo = saldo - valor;
